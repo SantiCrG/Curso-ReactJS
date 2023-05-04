@@ -1,17 +1,19 @@
 // siempre importar las bibliotecas
 // cuando importemos el modulo "react" siempre hay que llamar el import igual
-import React, { createContext } from "react"
+import React, { createContext } from "react";
 // le decimos que queremos modificar el dom con react
-import ReactDom from "react-dom/client"
+import ReactDom from "react-dom/client";
+
 
 // importamos el nombre de el componente y en que archivo se encuentra 
 // luego de esto lo podemos usar en un render para que se visualize
-import {Ejemplo, Tarjetas, Juegos} from "./React2"
+import {Ejemplo, Tarjetas, Juegos, Botones} from "./React2";
 
 // para importar por default ya que no esta exportando nada individualmente 
 // esta exportando todo el modulo
 // tambien podemos exportar otro individualmene del mismo archivo
-import Ezio , {Heart} from "./React3"
+import Ezio , {Heart} from "./React3";
+
 
 // en el html hay un id llamado root entonces de ese id queremos que react monte nuestra aplicacion de este archivo
 
@@ -164,20 +166,66 @@ function Casadinis(){
     );
 }
 
+
+// PROPS
+
+// PARA PASAR PARAMETRO Y VISUALIZARLO EN LA CONSOLE
+// De esta manera podemos imprimir el valor de una propiedad 
+
+
+// acordemonos que las llaves es para identificar que es codigo
+
+
+function Palabras({Name, User, Area, Sueldo, Direccion, Civil ,greet}){
+    console.log(Name, User, Area, Sueldo, Direccion,Civil, greet)
+    return <div>
+        <h1>{Name}</h1>
+        <p>Usuario: {User}</p>
+        <h4>Estado Civil: {Civil ? "casado" : "soltero"}</h4>
+        <p>Sueldo: 💵${Sueldo}</p>
+        <li>Pais: {Direccion.Pais}</li>
+        <li>Ciudad: {Direccion.Ciudad}</li>
+        <li>Localidad: {Direccion.Localidad}</li>
+        <li>Codigo Postal {Direccion.Cod}</li>
+    </div>
+}
+
 // si no queremos utilizar etiquetas como divs o <h1> podemos utilizar este tipo de etiqueta
 // esta etiqueta <> se llama fragment la cual nos brinda JSX
 root.render(<>
-<Casadinis/>
-<br></br>
-<Ejemplo/>
-<br></br>
-<Tarjetas></Tarjetas>
-<hr></hr>
-<Juegos></Juegos>
-<hr></hr>
-<Ezio></Ezio>
-<hr></hr>
-<Heart></Heart>
+{ /* <Palabras 
+Name="Santiago Ceron"
+User="Sceron"
+Area="Analista"
+Civil= {true}
+Sueldo = {1780000}
+Direccion = {{Pais:"Colombia", Ciudad:"Bogota", 
+Localidad:"Suba", 
+Cod:"11111"}}
+
+greet={function() {
+    alert("hello")
+}}
+/>
+
+<Palabras  
+// reutilizacion de codigo del otro componente solo cambiando los datos
+Name={"Luis Martinez"}
+User="Lmartinez"
+Area="Proyectos"
+Civil= {false}
+Sueldo = {30000000}
+Direccion = {{Pais:"Colombia", Ciudad:"Bogota", 
+Localidad:"Suba", 
+Cod:"232222"}}
+/> */}
+
+<Botones title="Comprar"/>
+<Botones title="Ver Mas"/>
+<Botones title="Tipo Texto"/>
+
+
 </>)
 
 
+//PARA COMENTAR EN JSX SE ENCIERRA LO QUE QUEREMOS COMENTAR EN LLAVES Y LUEGO SELECICONAMOS LO QUE QUEREMOS COMENTAR CON SHIFT + ALT + A

@@ -1,5 +1,5 @@
 // este es un nuevo componente el cual vamos a querer exportar a otro archivo como lo es el principal index
-
+import PropTypes from "prop-types"
 
 // ES IMPORTANTE QUE LAS FUNCIONES EMPIEZEN CON LA LETRA MAYUSCULA
 
@@ -37,4 +37,23 @@ export function Juegos(){
         break;
     }
 
+}
+
+
+
+
+// DEFAULT PROPS
+
+export function Botones({title}){
+    console.log(title)
+    return <button>
+        {title}
+    </button>
+
+}
+
+// De la funcion botones en con proptypes quiero que la propiedad sea solo un string
+//le estamos diciendo tambien que es requerido
+Botones.propTypes = {
+    title: PropTypes.string
 }
